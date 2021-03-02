@@ -9,18 +9,41 @@ part of 'controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$Controller on ControllerBase, Store {
-  final _$counterAtom = Atom(name: 'ControllerBase.counter');
+  Computed<String> _$fullNameComputed;
 
   @override
-  int get counter {
-    _$counterAtom.reportRead();
-    return super.counter;
+  String get fullName =>
+      (_$fullNameComputed ??= Computed<String>(() => super.fullName,
+              name: 'ControllerBase.fullName'))
+          .value;
+
+  final _$nameAtom = Atom(name: 'ControllerBase.name');
+
+  @override
+  String get name {
+    _$nameAtom.reportRead();
+    return super.name;
   }
 
   @override
-  set counter(int value) {
-    _$counterAtom.reportWrite(value, super.counter, () {
-      super.counter = value;
+  set name(String value) {
+    _$nameAtom.reportWrite(value, super.name, () {
+      super.name = value;
+    });
+  }
+
+  final _$lastNameAtom = Atom(name: 'ControllerBase.lastName');
+
+  @override
+  String get lastName {
+    _$lastNameAtom.reportRead();
+    return super.lastName;
+  }
+
+  @override
+  set lastName(String value) {
+    _$lastNameAtom.reportWrite(value, super.lastName, () {
+      super.lastName = value;
     });
   }
 
@@ -28,11 +51,22 @@ mixin _$Controller on ControllerBase, Store {
       ActionController(name: 'ControllerBase');
 
   @override
-  dynamic increment() {
+  dynamic setName(String newName) {
     final _$actionInfo = _$ControllerBaseActionController.startAction(
-        name: 'ControllerBase.increment');
+        name: 'ControllerBase.setName');
     try {
-      return super.increment();
+      return super.setName(newName);
+    } finally {
+      _$ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setLastName(String newLastName) {
+    final _$actionInfo = _$ControllerBaseActionController.startAction(
+        name: 'ControllerBase.setLastName');
+    try {
+      return super.setLastName(newLastName);
     } finally {
       _$ControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -41,7 +75,9 @@ mixin _$Controller on ControllerBase, Store {
   @override
   String toString() {
     return '''
-counter: ${counter}
+name: ${name},
+lastName: ${lastName},
+fullName: ${fullName}
     ''';
   }
 }

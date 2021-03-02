@@ -17,25 +17,30 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            Padding(padding: EdgeInsets.all(25),
+              child: Column(children: [
+                TextField(
+                  decoration: InputDecoration(labelText: "Name"),
+                  onChanged: controller.setName,
+                ),
+                TextField(
+                  decoration: InputDecoration(labelText: "Last name"),
+                  onChanged: controller.setLastName,
+                ),
+
+              ],),
             ),
             Observer(//to obeserver state changes 
               builder: (_) {
                 return Text(
-                  '${controller.counter}',
-                  style: Theme.of(context).textTheme.headline4,
+                  'Your full name is\n${controller.fullName}',
+                  style: Theme.of(context).textTheme.bodyText1,
                 );
               },
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: controller.increment,//call funtion to update counter
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
