@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx_learning/controller/controller.dart';
+import 'package:flutter_mobx_learning/controller/login_controller.dart';
 import 'package:flutter_mobx_learning/view/main_menu.dart';
 import 'package:get_it/get_it.dart';
-
+import 'controller/list_controller.dart';
 import 'view/home.dart';
 
 void main() {
   GetIt getIt = GetIt.I;
-  getIt.registerSingleton(Controller());
+  getIt.registerSingleton(LoginController());
+  getIt.registerSingleton(ListItemController());
 
   runApp(MyApp());
 }

@@ -1,9 +1,9 @@
 import 'package:mobx/mobx.dart';
-part 'controller.g.dart';
+part 'login_controller.g.dart';
 
-class Controller = ControllerBase with _$Controller;
+class LoginController = LoginControllerBase with _$LoginController;
 
-abstract class ControllerBase with Store {
+abstract class LoginControllerBase with Store {
   @observable
   String name = '';
 

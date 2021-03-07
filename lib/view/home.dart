@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_mobx_learning/components/my_text_field.inline.dart';
-import 'package:flutter_mobx_learning/controller/controller.dart';
+import 'package:flutter_mobx_learning/controller/login_controller.dart';
+import 'package:flutter_mobx_learning/models/components/my_text_field.inline.dart';
 import 'package:get_it/get_it.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = GetIt.I.get<Controller>();
+    final controller = GetIt.I.get<LoginController>();
 
     return Scaffold(
       key: _scaffoldKey,

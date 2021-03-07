@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'controller.dart';
+part of 'login_controller.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,16 +8,16 @@ part of 'controller.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$Controller on ControllerBase, Store {
+mixin _$LoginController on LoginControllerBase, Store {
   Computed<String> _$fullNameComputed;
 
   @override
   String get fullName =>
       (_$fullNameComputed ??= Computed<String>(() => super.fullName,
-              name: 'ControllerBase.fullName'))
+              name: 'LoginControllerBase.fullName'))
           .value;
 
-  final _$nameAtom = Atom(name: 'ControllerBase.name');
+  final _$nameAtom = Atom(name: 'LoginControllerBase.name');
 
   @override
   String get name {
@@ -32,7 +32,7 @@ mixin _$Controller on ControllerBase, Store {
     });
   }
 
-  final _$lastNameAtom = Atom(name: 'ControllerBase.lastName');
+  final _$lastNameAtom = Atom(name: 'LoginControllerBase.lastName');
 
   @override
   String get lastName {
@@ -47,7 +47,7 @@ mixin _$Controller on ControllerBase, Store {
     });
   }
 
-  final _$emailAtom = Atom(name: 'ControllerBase.email');
+  final _$emailAtom = Atom(name: 'LoginControllerBase.email');
 
   @override
   String get email {
@@ -62,7 +62,7 @@ mixin _$Controller on ControllerBase, Store {
     });
   }
 
-  final _$isSendingAtom = Atom(name: 'ControllerBase.isSending');
+  final _$isSendingAtom = Atom(name: 'LoginControllerBase.isSending');
 
   @override
   bool get isSending {
@@ -77,50 +77,76 @@ mixin _$Controller on ControllerBase, Store {
     });
   }
 
-  final _$ControllerBaseActionController =
-      ActionController(name: 'ControllerBase');
+  final _$messageAtom = Atom(name: 'LoginControllerBase.message');
+
+  @override
+  String get message {
+    _$messageAtom.reportRead();
+    return super.message;
+  }
+
+  @override
+  set message(String value) {
+    _$messageAtom.reportWrite(value, super.message, () {
+      super.message = value;
+    });
+  }
+
+  final _$LoginControllerBaseActionController =
+      ActionController(name: 'LoginControllerBase');
 
   @override
   dynamic setName(String newName) {
-    final _$actionInfo = _$ControllerBaseActionController.startAction(
-        name: 'ControllerBase.setName');
+    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
+        name: 'LoginControllerBase.setName');
     try {
       return super.setName(newName);
     } finally {
-      _$ControllerBaseActionController.endAction(_$actionInfo);
+      _$LoginControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   dynamic setLastName(String newLastName) {
-    final _$actionInfo = _$ControllerBaseActionController.startAction(
-        name: 'ControllerBase.setLastName');
+    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
+        name: 'LoginControllerBase.setLastName');
     try {
       return super.setLastName(newLastName);
     } finally {
-      _$ControllerBaseActionController.endAction(_$actionInfo);
+      _$LoginControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   dynamic setEmail(String newEmail) {
-    final _$actionInfo = _$ControllerBaseActionController.startAction(
-        name: 'ControllerBase.setEmail');
+    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
+        name: 'LoginControllerBase.setEmail');
     try {
       return super.setEmail(newEmail);
     } finally {
-      _$ControllerBaseActionController.endAction(_$actionInfo);
+      _$LoginControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   dynamic setIsSending(bool newSendingState) {
-    final _$actionInfo = _$ControllerBaseActionController.startAction(
-        name: 'ControllerBase.setIsSending');
+    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
+        name: 'LoginControllerBase.setIsSending');
     try {
       return super.setIsSending(newSendingState);
     } finally {
-      _$ControllerBaseActionController.endAction(_$actionInfo);
+      _$LoginControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setMessage(String newMessage) {
+    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
+        name: 'LoginControllerBase.setMessage');
+    try {
+      return super.setMessage(newMessage);
+    } finally {
+      _$LoginControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
@@ -131,6 +157,7 @@ name: ${name},
 lastName: ${lastName},
 email: ${email},
 isSending: ${isSending},
+message: ${message},
 fullName: ${fullName}
     ''';
   }
