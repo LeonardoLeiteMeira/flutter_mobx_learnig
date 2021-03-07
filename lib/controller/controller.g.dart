@@ -47,6 +47,36 @@ mixin _$Controller on ControllerBase, Store {
     });
   }
 
+  final _$emailAtom = Atom(name: 'ControllerBase.email');
+
+  @override
+  String get email {
+    _$emailAtom.reportRead();
+    return super.email;
+  }
+
+  @override
+  set email(String value) {
+    _$emailAtom.reportWrite(value, super.email, () {
+      super.email = value;
+    });
+  }
+
+  final _$isSendingAtom = Atom(name: 'ControllerBase.isSending');
+
+  @override
+  bool get isSending {
+    _$isSendingAtom.reportRead();
+    return super.isSending;
+  }
+
+  @override
+  set isSending(bool value) {
+    _$isSendingAtom.reportWrite(value, super.isSending, () {
+      super.isSending = value;
+    });
+  }
+
   final _$ControllerBaseActionController =
       ActionController(name: 'ControllerBase');
 
@@ -73,10 +103,34 @@ mixin _$Controller on ControllerBase, Store {
   }
 
   @override
+  dynamic setEmail(String newEmail) {
+    final _$actionInfo = _$ControllerBaseActionController.startAction(
+        name: 'ControllerBase.setEmail');
+    try {
+      return super.setEmail(newEmail);
+    } finally {
+      _$ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setIsSending(bool newSendingState) {
+    final _$actionInfo = _$ControllerBaseActionController.startAction(
+        name: 'ControllerBase.setIsSending');
+    try {
+      return super.setIsSending(newSendingState);
+    } finally {
+      _$ControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 name: ${name},
 lastName: ${lastName},
+email: ${email},
+isSending: ${isSending},
 fullName: ${fullName}
     ''';
   }
