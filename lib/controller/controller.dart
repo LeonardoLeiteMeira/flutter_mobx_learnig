@@ -31,6 +31,12 @@ abstract class ControllerBase with Store {
   @action
   setIsSending(bool newSendingState) => isSending = newSendingState;
 
+  @observable
+  String message = "";
+
+  @action
+  setMessage(String newMessage) => message = newMessage;
+
   String validateEmail() {
     if (email.contains("@")) {
       return null;
@@ -39,15 +45,21 @@ abstract class ControllerBase with Store {
   }
 
   Future<bool> submitForm() async {
+    bool isDataValid = false;
     setIsSending(true);
     print(fullName);
     print(email);
-    /**
-     * Verify login here
-     */
+
+    if (email == "leonardo@commitjr.com") {
+      isDataValid = true;
+    } else {
+      isDataValid = false;
+      setMessage("Email not found!");
+    }
+
     await Future.delayed(Duration(seconds: 2));
-    
     setIsSending(false);
-    return true;
+
+    return isDataValid;
   }
 }

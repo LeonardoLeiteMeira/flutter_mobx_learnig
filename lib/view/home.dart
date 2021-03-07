@@ -7,12 +7,21 @@ import 'package:provider/provider.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  _loginError(String message) {
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text(message),
+      backgroundColor: Colors.red,
+    ));
+  }
 
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<Controller>(context);
 
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Flutetr MobX"),
       ),
@@ -55,9 +64,11 @@ class MyHomePage extends StatelessWidget {
             }
             return RaisedButton(
               child: Text("Login"),
-              onPressed: ()async {
-                if(await controller.submitForm()){
+              onPressed: () async {
+                if (await controller.submitForm()) {
                   Navigator.pushNamed(context, '/menu');
+                } else {
+                  _loginError(controller.message);
                 }
               },
             );
