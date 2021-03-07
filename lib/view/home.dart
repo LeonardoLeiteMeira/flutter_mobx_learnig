@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_mobx_learning/components/my_text_field.inline.dart';
 import 'package:flutter_mobx_learning/controller/controller.dart';
-import 'package:provider/provider.dart';
+import 'package:get_it/get_it.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -18,7 +18,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<Controller>(context);
+    final controller = GetIt.I.get<Controller>();
 
     return Scaffold(
       key: _scaffoldKey,

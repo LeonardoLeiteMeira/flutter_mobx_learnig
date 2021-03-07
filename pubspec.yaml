@@ -21,7 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  provider:
+  get_it:
   mobx_codegen:
   build_runner:
   flutter:
