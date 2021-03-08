@@ -19,6 +19,22 @@ abstract class ListItemControllerBase with Store {
     listItem.remove(removeItem);
   }
 
+  @observable
+  String _filter = '';
+
+  @action
+  setFilter(String newFilter) => _filter = newFilter;
+
+  @computed
+  ObservableList<ItemModel> get listItemFiltered {
+    if (_filter == '') return listItem;
+    
+    return listItem
+      .where((item) => item.title.contains(_filter))
+      .toList()
+      .asObservable();
+  }
+
   @computed
   int get totalSelected => listItem.where((item) => item.check).length;
 
