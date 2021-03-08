@@ -37,11 +37,29 @@ abstract class LoginControllerBase with Store {
   @action
   setMessage(String newMessage) => message = newMessage;
 
+  bool isFilling = false;
+  setIsFilling(bool newIsFilling) => isFilling = newIsFilling;
+
   String validateEmail() {
     if (email.contains("@")) {
       return null;
     }
-    return "This email is not valid";
+    return isFilling?"This email is not valid":null;
+  }
+
+  String validateName() {
+    if (name.length > 3) {
+      return null;
+    }
+    return isFilling?"Name must be 3 character":null;
+  }
+
+  String validateLastName() {
+    if (!isFilling) return null;
+    if (lastName.length > 3) {
+      return null;
+    }
+    return isFilling?"Last name must be 3 character":null;
   }
 
   Future<bool> submitForm() async {
