@@ -21,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     disposerReactions = List<ReactionDisposer>();
     //create reactions
     var reactionFiling = reaction<bool>(
-      (_) => controller.email != "" || controller.fullName != " ",
+      (_) => controller.email != "" || controller.fullName.isNotEmpty,
       (bool _isFilling) {
         print(_isFilling);
         controller.setIsFilling(_isFilling);
