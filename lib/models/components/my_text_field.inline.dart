@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 Widget myTextFieldInline(String label, 
-  Function onChangeFn, 
-  Function onSubmittedHandle, 
-  String Function() errorHandle,
+  Function(String)? onChangeFn, 
+  Function(String)? onSubmittedHandle, 
+  String? Function()? errorHandle,
   TextInputType keyboardType)=> 
   
   Padding(

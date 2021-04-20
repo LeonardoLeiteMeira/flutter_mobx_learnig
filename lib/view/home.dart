@@ -14,11 +14,10 @@ class _MyHomePageState extends State<MyHomePage> {
   _MyHomePageState();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final controller = GetIt.I.get<LoginController>();
-  List<ReactionDisposer> disposerReactions;
+  var disposerReactions = List<ReactionDisposer>.empty(growable: true);
 
   @override
   initState() {
-    disposerReactions = List<ReactionDisposer>();
     //create reactions
     var reactionFiling = reaction<bool>(
       (_) => controller.email.isNotEmpty || controller.fullName.isNotEmpty,
@@ -42,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _loginError(String message) {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    _scaffoldKey.currentState!.showSnackBar(SnackBar(
       content: Text(message),
       backgroundColor: Colors.red,
     ));
@@ -106,8 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
             return RaisedButton(
               child: Text("Login"),
               onPressed: () async {
-                if (await controller.submitForm()) {
-                  // Navigator.pushNamed(context, '/menu');
+                if (await controller.submitForm(controller.email)) {
+                  Navigator.pushNamed(context, '/menu');
                 } else {
                   _loginError(controller.message);
                 }

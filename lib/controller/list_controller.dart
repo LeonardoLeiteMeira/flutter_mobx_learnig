@@ -1,15 +1,17 @@
 import 'package:flutter_mobx_learning/models/item.model.dart';
+import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 part 'list_controller.g.dart';
 
+@lazySingleton
 class ListItemController = ListItemControllerBase with _$ListItemController;
 
 abstract class ListItemControllerBase with Store {
   @observable
-  ObservableList<ItemModel> listItem;
+  var listItem = ObservableList<ItemModel>();
 
   @action
-  setListItem(List<ItemModel> newListItem) => listItem = newListItem;
+  setListItem(List<ItemModel> newListItem) => listItem = newListItem.asObservable();
 
   @action
   addItem(ItemModel newItem) => listItem.add(newItem);
@@ -26,13 +28,10 @@ abstract class ListItemControllerBase with Store {
   setFilter(String newFilter) => _filter = newFilter;
 
   @computed
-  ObservableList<ItemModel> get listItemFiltered {
+  ObservableList<ItemModel?>? get listItemFiltered {
     if (_filter == '') return listItem;
-    
-    return listItem
-      .where((item) => item.title.contains(_filter))
-      .toList()
-      .asObservable();
+
+    return listItem.where((item) => item.title.contains(_filter)).toList().asObservable();
   }
 
   @computed

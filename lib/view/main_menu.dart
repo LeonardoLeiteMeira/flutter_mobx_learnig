@@ -45,8 +45,8 @@ class MainMenu extends StatelessWidget {
   _newItemDialog(context, Function addItem) => showDialog(
       context: context,
       builder: (_) {
-        ItemModel newItem = ItemModel(check: false);
-        String title;
+        ItemModel newItem = ItemModel(check: false, title: '');
+        String title = "";
         onChange(String value) {
           title = value;
         }
@@ -94,6 +94,7 @@ class MainMenu extends StatelessWidget {
         child: Column(children: <Widget>[
           _filter(listItemController),
           _listItensWidget(listItemController),
+          
         ]),
       ),
       floatingActionButton: FloatingActionButton(

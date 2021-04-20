@@ -54,7 +54,7 @@ mixin _$ItemModel on ItemModelBase, Store {
   }
 
   @override
-  dynamic setCheck(bool newCheck) {
+  bool? setCheck(bool newCheck) {
     final _$actionInfo = _$ItemModelBaseActionController.startAction(
         name: 'ItemModelBase.setCheck');
     try {

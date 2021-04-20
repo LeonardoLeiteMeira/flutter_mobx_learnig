@@ -11,8 +11,9 @@ abstract class ItemModelBase with Store {
 
   @observable
   bool check;
+  
   @action
-  setCheck(bool newCheck) => check = newCheck;
+  bool? setCheck(bool newCheck) => check = newCheck;
 
-  ItemModelBase({this.title, this.check});
+  ItemModelBase({required this.title, required this.check});
 }

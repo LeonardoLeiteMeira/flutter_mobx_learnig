@@ -18,12 +18,13 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   get_it:
   mobx_codegen:
   build_runner:
+  injectable: ^1.2.2
   flutter:
     sdk: flutter
 
@@ -35,6 +36,11 @@ dependencies:
   flutter_mobx:
 
 dev_dependencies:
+  mockito: ^5.0.4
+  build_runner: ^1.12.2
+  injectable_generator: ^1.2.2
+  moor_generator: ^4.2.1
+  
   flutter_test:
     sdk: flutter
 

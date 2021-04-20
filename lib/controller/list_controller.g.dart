@@ -9,15 +9,15 @@ part of 'list_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ListItemController on ListItemControllerBase, Store {
-  Computed<ObservableList<ItemModel>> _$listItemFilteredComputed;
+  Computed<ObservableList<ItemModel?>?>? _$listItemFilteredComputed;
 
   @override
-  ObservableList<ItemModel> get listItemFiltered =>
-      (_$listItemFilteredComputed ??= Computed<ObservableList<ItemModel>>(
+  ObservableList<ItemModel?>? get listItemFiltered =>
+      (_$listItemFilteredComputed ??= Computed<ObservableList<ItemModel?>?>(
               () => super.listItemFiltered,
               name: 'ListItemControllerBase.listItemFiltered'))
           .value;
-  Computed<int> _$totalSelectedComputed;
+  Computed<int>? _$totalSelectedComputed;
 
   @override
   int get totalSelected =>
